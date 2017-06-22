@@ -1,0 +1,27 @@
+{
+  "name": "scheduled-date-tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renecardozo/scheduled-date-tool.git"
+  },
+  "keywords": [],
+  "author": "rene.cardozo.2014@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renecardozo/scheduled-date-tool/issues"
+  },
+  "homepage": "https://github.com/renecardozo/scheduled-date-tool#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2"
+  }
+}

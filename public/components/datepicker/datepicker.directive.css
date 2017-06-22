@@ -1,0 +1,23 @@
+ .my-class {
+    background: red;
+}
+.my-class a {
+    background: lime !important;
+}
+
+.holiday a {
+    background-color: #FB7B0E !important;
+    background-image :none !important;
+    color: blue !important;
+}
+
+.weekend-days a {
+    background-color: #FAFB0D !important;
+    background-image :none !important;
+    color: blue !important;
+}
+.not-weekend-days a {
+  background-color: #C8DCA4 !important;
+  background-image :none !important;
+  color: blue !important;
+}

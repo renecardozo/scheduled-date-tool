@@ -1,0 +1,51 @@
+<div class="container container-form-scheduler">
+  <div class="row">
+    <form class="form-horizontal" ng-submit="scheduleCtrl.calculateSchedule()">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="startDate">Start Date</label>
+        <div class="col-sm-4">
+          <input type="text"
+                    class="form-control" 
+                    id="startDate"
+                    placeholder="Enter 8/15/2008"
+                    name="startDate"
+                    id='datetimepicker-sch'
+                    ng-model="scheduleCtrl.startDate"
+                    datepicker>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">Number of Days</label>
+        <div class="col-sm-4">
+          <input type="text" 
+                    class="form-control"
+                    id="numberOfDays"
+                    placeholder="Enter Number Of Days"
+                    name="numberOfDays"
+                    ng-model="scheduleCtrl.numberOfDays">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">Country Code</label>
+        <div class="col-sm-4">
+          <input type="text"
+                    class="form-control"
+                    id="countryCode"
+                    placeholder="Enter Country Code e.g. US"
+                    name="countryCode"
+                    ng-model="scheduleCtrl.countryCode">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-5 col-sm-10">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" ng-show="scheduleCtrl.showCalendar">
+      <div id="schedulerDatePicker"></div>
+    </div>
+  </div>
+</div>
