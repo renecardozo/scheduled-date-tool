@@ -1,12 +1,29 @@
 (function (){
   'use strict';
+
+  /**
+   * @function DatePickerService
+   * @author Rene Cardozo
+   * @description  Custom service
+   * @param {Object} moment            Third party library to interact with dates
+   */
   function DatePickerService(moment){
 
-    function showCalendar(holidays, months){
-      var minDate = holidays[0].date;
-      var maxDate = holidays[holidays.length - 1 ].date;
+    /**
+     * @function showCalendar
+     * @description  Custom service where is the datepicker to be used
+     * as constructor of calendar of holidays 
+     * @author Rene Cardozo
+     * @param  {Array} holidays      List of holidays
+     * @param  {Integer} months The months where is the holidays
+     * @param  {String} startDate   Start date to search the holidays
+     * @param  {String} endDate     End date to searhc the holidays
+     */
+    function showCalendar(holidays, months, startDate, endDate){
+      var minDate = startDate;
+      var maxDate = endDate;
      $("#schedulerDatePicker").datepicker({
-        numberOfMonths: 3,
+        numberOfMonths: months,
         dateFormat: 'yy-mm-dd',
         minDate: minDate,
         maxDate: maxDate,
@@ -30,6 +47,12 @@
       });
     }
 
+    /**
+     * @fuinction addDays
+     * @param {Date} date It is used to calculate the next month to the range of month
+     * @param {Integer} days Quantity to be used to calculate the next month
+     * @return {String} The end date to be used to search the holidays
+     */
     function addDays(date, days) {
       var days = parseInt(days);
       var nextMonth = new Date(date);
@@ -37,6 +60,13 @@
       return moment(nextMonth).format('YYYY-MM-DD');
     }
 
+    /**
+     * @function getMonths
+     * @author  Rene Cardozo
+     * @param  {String} startDate The start date to search the holidays
+     * @param  {String} endDate   The end date to search the holidays
+     * @return {Array}           List of months to use as range to search the holidays
+     */
     function getMonths(startDate, endDate){
       var startDate = moment(startDate);
       var endDate = moment(endDate);
@@ -46,11 +76,12 @@
       }
       var currentDate = startDate.clone();
       while (currentDate.isBefore(endDate)) {
-          months.push({
-            month: new Date(currentDate).getMonth(),
-            year: new Date(currentDate).getFullYear(),
-          });
-          currentDate.add(1, 'month');
+        var month = new Date(currentDate).getMonth() + 1;
+        months.push({
+          month: month,
+          year: new Date(currentDate).getFullYear()
+        });
+        currentDate.add(1, 'month');
       }
       return months;
     }

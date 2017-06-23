@@ -1,6 +1,6 @@
 <div class="container container-form-scheduler">
   <div class="row">
-    <form class="form-horizontal" ng-submit="scheduleCtrl.calculateSchedule()">
+    <form class="form-horizontal" ng-submit="scheduleCtrl.calculateSchedule()" name="formHolidays">
       <div class="form-group">
         <label class="control-label col-sm-2" for="startDate">Start Date</label>
         <div class="col-sm-4">
@@ -11,7 +11,8 @@
                     name="startDate"
                     id='datetimepicker-sch'
                     ng-model="scheduleCtrl.startDate"
-                    datepicker>
+                    datepicker
+                    ng-required="scheduleCtrl.startDate">
         </div>
       </div>
       <div class="form-group">
@@ -22,7 +23,8 @@
                     id="numberOfDays"
                     placeholder="Enter Number Of Days"
                     name="numberOfDays"
-                    ng-model="scheduleCtrl.numberOfDays">
+                    ng-model="scheduleCtrl.numberOfDays"
+                    ng-required="scheduleCtrl.numberOfDays">
         </div>
       </div>
       <div class="form-group">
@@ -33,7 +35,8 @@
                     id="countryCode"
                     placeholder="Enter Country Code e.g. US"
                     name="countryCode"
-                    ng-model="scheduleCtrl.countryCode">
+                    ng-model="scheduleCtrl.countryCode"
+                    ng-required="scheduleCtrl.countryCode">
         </div>
       </div>
       <div class="form-group">
@@ -44,8 +47,15 @@
     </form>
   </div>
   <div class="row">
-    <div class="col-sm-12" ng-show="scheduleCtrl.showCalendar">
+    <div class="col-sm-offset-1 col-sm-12" ng-show="scheduleCtrl.showCalendar">
       <div id="schedulerDatePicker"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-offset-1 col-sm-8" ng-if="formHolidays.myInput.$valid || scheduleCtrl.requestErrorHolidays">
+      <div class="alert alert-danger">
+        <strong>Danger!</strong> {{scheduleCtrl.errorMessageHoliday}}
+      </div>
     </div>
   </div>
 </div>

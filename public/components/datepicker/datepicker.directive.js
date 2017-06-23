@@ -1,5 +1,9 @@
 (function(){
   'use strict';
+  /**
+   * @description Custom service where is the datepicker to be shown 
+   * to select the start date
+   */
   function DatePickerDirective(){
     return {
       restrict: 'A',
