@@ -18,6 +18,9 @@
      * @description Calculate the date to do the request for holidays.
      */
     function calculateSchedule(){
+      if (scheduleCtrl.requestErrorHolidays) {
+        scheduleCtrl.requestErrorHolidays = !scheduleCtrl.requestErrorHolidays;
+      }
       var startDate = scheduleCtrl.startDate || undefined;
       var numberOfDays = scheduleCtrl.numberOfDays || undefined;
       var countryCode = scheduleCtrl.countryCode? scheduleCtrl.countryCode.toUpperCase() : '';
